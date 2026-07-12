@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>레퍼런스 · 암브록솔 — IDSX Lab</title>
+  <link rel="stylesheet" href="../assets/css/style.css" />
+</head>
+<body>
+  <div data-nav></div>
+  <main class="wrap">
+    <section class="hero">
+      <div class="kicker">Reference · success conditions only</div>
+      <h1>암브록솔 × GCase<br/>조건은 빌리고 약은 빌리지 않는다</h1>
+      <p class="lede">
+        효소 <strong>GCase</strong> (<span class="mono">GBA1</span>, P04062) · 기질 GlcCer.
+        ER에서 붙잡아 접힘·전달을 돕는 PC 서사.
+        <strong style="color:var(--text)">IDS 치료 후보 claim 없음.</strong>
+      </p>
+      <div class="badges">
+        <span class="badge ok">정체 검증</span>
+        <span class="badge info">pH 의존 안정화 서사</span>
+        <span class="badge warn">열안정 = 대리 지표</span>
+        <span class="badge purple">IDS 비적용 claim</span>
+      </div>
+    </section>
+
+    <section class="block prose">
+      <h2>1. 왜 레퍼런스인가</h2>
+      <p>
+        IDSX 프레임: 결합이 아니라 <strong>기능 구조·ER 통과·competence</strong>.
+        암브록솔–GCase는 그 정의가 문헌·세포 데이터로 이미 쓰인 비교군이다.
+      </p>
+    </section>
+
+    <section class="block prose">
+      <h2>2. 기전 스케치 (합의 프레임)</h2>
+      <ol>
+        <li>GCase에 결합 (활성부위 관련·혼합 모드 논의 여지)</li>
+        <li><strong>중성(ER) pH</strong>에서 안정화 경향 → 변이 효소 접힘·통과에 유리</li>
+        <li><strong>산성(리소좀) pH</strong>에서 억제 약화 → 기질 분해 여지</li>
+        <li>보고: 잔존 활성↑ · 리소좀 국재↑ (genotype 의존 · 이질성)</li>
+      </ol>
+      <div class="callout">
+        ER은 서열을 읽지 않는다. 암브록솔은
+        <strong>구조·안정 상태를 유리하게 밀어 QC 통과를 돕는</strong> 쪽에 가깝다.
+      </div>
+    </section>
+
+    <section class="block prose">
+      <h2>3. “열적 안정성” 위치</h2>
+      <p>
+        문헌에서 stabilize·열/화학 저항이 같이 측정되기도 한다.
+        그러나 PC의 본질 서사는
+        <strong>ER 안정화 → 트래픽킹 → 리소좀 활성</strong>이지
+        “Tm만 올리면 치료”가 아니다.
+      </p>
+      <p>
+        IDSX에서도 동일:
+        열안정·ΔΔG = <strong>온도계</strong>,
+        목표 = <strong>네트워크 유지·competence</strong>.
+        “IDS에 열안정 보장 인자를 찾는 프로젝트”로 rename하지 않는다.
+      </p>
+    </section>
+
+    <section class="block prose">
+      <h2>4. IDS와 나란히</h2>
+      <table>
+        <thead><tr><th></th><th>GCase + ABX</th><th>IDS (설계 가설)</th></tr></thead>
+        <tbody>
+          <tr><td>문제</td><td>접힘/트래픽킹 결함 미스센스</td><td>모듈 네트워크 불안정 가능</td></tr>
+          <tr><td>개입</td><td>소분자가 효소에 결합</td><td>매장 노드 불가 → <strong>표면 패치</strong></td></tr>
+          <tr><td>생물학</td><td>ER 통과↑ · 활성↑</td><td>같은 방향 가설</td></tr>
+          <tr><td>성공</td><td>competence 지표</td><td>동일 (binding만 X)</td></tr>
+          <tr><td>한계</td><td>genotype 이질성</td><td>미설계·미실험</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="block prose">
+      <h2>5. 이식 체크리스트 C1–C6</h2>
+      <table>
+        <thead><tr><th>ID</th><th>조건</th><th>IDSX</th></tr></thead>
+        <tbody>
+          <tr><td>C1</td><td>잔존 촉매 잠재력</td><td>문헌·assay 매핑</td></tr>
+          <tr><td>C2</td><td>가역·조건부 결합</td><td>리소좀 기능 방해 금지</td></tr>
+          <tr><td>C3</td><td>안정화 증거</td><td>구조/발현 — 결합만 X</td></tr>
+          <tr><td>C4</td><td>트래픽킹</td><td>ERAD↓ · 국재</td></tr>
+          <tr><td>C5</td><td>genotype-spec</td><td>EXCLUDE/CAUTION/TIER</td></tr>
+          <tr><td>C6</td><td>실패 모드</td><td>포켓 억제 · 잘못된 콘포머</td></tr>
+        </tbody>
+      </table>
+      <div class="callout danger">
+        금지: 암브록솔을 IDS에 쓰면 된다.<br/>
+        허용: 성공 조건을 IDS 평가표에 넣는다.
+      </div>
+    </section>
+
+    <section class="block prose">
+      <h2>6. IDS에 주는 네 교훈</h2>
+      <ol>
+        <li>대붕괴 없이도 구제 논리 가능 (AF 유사 fold와 양립)</li>
+        <li>개입 지점 = 서열 판독이 아니라 접힘·안정·전달</li>
+        <li>성공 지표 = 리소좀 활성·국재</li>
+        <li>모든 변이에 통하지 않음 → triage 필요</li>
+      </ol>
+    </section>
+  </main>
+  <footer class="footer"><div class="wrap"><div>IDSX Lab · Reference</div><div><a href="../index.html">← Home</a></div></div></footer>
+  <script src="../assets/js/nav.js"></script>
+</body>
+</html>

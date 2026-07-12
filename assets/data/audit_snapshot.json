@@ -1,0 +1,87 @@
+{
+  "audit_date": "2026-07-11",
+  "project": "IDSX",
+  "sources_checked": ["local_5FQL.pdb", "IDS_P22304_Mutation_Structural_Database.xlsx", "UniProt_API_P22304", "UniProt_API_P04062", "ClinVar_eutils", "RCSB_5FQL"],
+  "ids": {
+    "uniprot": "P22304",
+    "uniprot_id": "IDS_HUMAN",
+    "protein_name": "Iduronate 2-sulfatase",
+    "sequence_length": 550,
+    "aa152": "S",
+    "aa152_verified": true,
+    "pdb": "5FQL",
+    "pdb_title": "Insights into Hunter syndrome from the structure of iduronate-2-sulfatase",
+    "resolution_A": 2.3,
+    "method": "X-RAY DIFFRACTION",
+    "residue_84_in_pdb": "ALS",
+    "residue_84_note": "formylglycine (3-oxoalanine) catalytic nucleophile — consistent with UniProt active site 84"
+  },
+  "ser152_structure": {
+    "present_in_5FQL": true,
+    "rsa_pct_project": 0,
+    "dist_to_catalytic_pocket_A_project": 10.27,
+    "og_contacts_lt_3_5A": [
+      {"partner": "Asp148 OD2", "distance_A": 2.53},
+      {"partner": "Thr118 OG1", "distance_A": 2.85}
+    ],
+    "verdict": "PASS — local geometry matches project claims"
+  },
+  "ser152ile_clinvar": {
+    "variation_id": "3255739",
+    "accession": "VCV003255739",
+    "hgvs_cdna": "NM_000202.8(IDS):c.455G>T",
+    "hgvs_protein": "p.Ser152Ile",
+    "germline_classification": "Pathogenic",
+    "review_status": "criteria provided, single submitter",
+    "last_evaluated": "2024-06-07",
+    "project_note": "Project DB lists Pathogenic; ClinVar ID was empty on some rows — now filled by this audit. HGVS is c.455G>T not c.454A>T."
+  },
+  "database_integrity": {
+    "mutation_master_n": 797,
+    "position_152_annotation_rows": 5,
+    "issues": [
+      {
+        "severity": "medium",
+        "item": "Duplicate Ser152Arg rows in Structural_Annotation / Mutation_Master",
+        "action": "deduplicate before publication tables"
+      },
+      {
+        "severity": "medium",
+        "item": "Some Pathogenic labels lack ClinVar_id in Excel",
+        "action": "backfill ClinVar accessions (S152I → VCV003255739)"
+      },
+      {
+        "severity": "low",
+        "item": "c.454A>T row at position 152 with clin=None",
+        "action": "verify DNA change mapping; do not equate to S152I without HGVS check"
+      },
+      {
+        "severity": "info",
+        "item": "is_catalytic_residue flag false for Arg88 despite dist_cat=2.77Å",
+        "action": "expected if flag is strict catalytic set; Arg88 correctly lives in CAUTION_POCKET by distance rule"
+      },
+      {
+        "severity": "info",
+        "item": "Asp45 is_direct_Ca_ligand=true, dist_cat=1.33Å",
+        "action": "consistent with Ca coordination; hard-exclude path OK"
+      }
+    ]
+  },
+  "gcase_reference": {
+    "uniprot": "P04062",
+    "uniprot_id": "GBA1_HUMAN",
+    "gene": "GBA1",
+    "protein_name": "Lysosomal acid glucosylceramidase",
+    "length": 536,
+    "chaperone_example": "ambroxol",
+    "disease": "Gaucher disease / GBA1-PD",
+    "role_in_IDSX": "success-condition reference only — not an IDS drug claim"
+  },
+  "overall": {
+    "structure_core_claims": "VERIFIED",
+    "uniprot_identity": "VERIFIED",
+    "clinvar_S152I_pathogenic": "VERIFIED (single submitter)",
+    "amenability_scores": "UNVERIFIED experimentally (by design — proxy)",
+    "residual_activity_map": "MISSING — next work item"
+  }
+}

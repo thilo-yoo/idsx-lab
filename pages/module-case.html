@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>모듈 사례 — IDSX Lab</title>
+  <link rel="stylesheet" href="../assets/css/style.css" />
+</head>
+<body>
+  <div data-nav></div>
+  <main class="wrap">
+    <section class="hero">
+      <div class="kicker">Worked example · not the whole project</div>
+      <h1>구조 모듈 사례:<br/>Ser152 네트워크</h1>
+      <p class="lede">
+        <a href="framework.html">프레임</a>을 한 코어 노드에 적용한 사례다.
+        Ser152 / p.Ser152Ile은 “IDS 유일 열쇠”가 아니라
+        <strong>TIER1 구제 논리를 설명하기 좋은 대표 얼굴</strong>이다.
+      </p>
+      <div class="badges">
+        <span class="badge info">구조 잔기 · 비촉매</span>
+        <span class="badge ok">5FQL 기하</span>
+        <span class="badge ok">ClinVar Pathogenic</span>
+        <span class="badge warn">직접 결합 불가 (매장)</span>
+      </div>
+    </section>
+
+    <section class="block prose">
+      <h2>1. 왜 사례로 적합한가</h2>
+      <table>
+        <thead><tr><th>기준</th><th>값</th><th>함의</th></tr></thead>
+        <tbody>
+          <tr><td>촉매 거리</td><td>~10.3 Å</td><td>직접 화학 파괴 스토리 약함</td></tr>
+          <tr><td>RSA</td><td>0%</td><td><strong>접힌 상태 직접 바인딩 불가</strong></td></tr>
+          <tr><td>물리</td><td>OH···Asp148 / Thr118</td><td>H-bond 네트워크 노드</td></tr>
+          <tr><td>S→I</td><td>부피·소수성↑</td><td>패킹·극성 교란</td></tr>
+          <tr><td>반례</td><td>Arg88 (2.77 Å)</td><td>빈도≠구제적합</td></tr>
+        </tbody>
+      </table>
+      <div class="callout">
+        focusing의 의미: 문제 = 152 모듈 · 적용 = 연결된 <strong>표면 패치</strong>.
+        (Asp308·Tyr108도 형제 사례 — <a href="compute.html">2축 맵</a>)
+      </div>
+    </section>
+
+    <section class="block prose">
+      <h2>2. 기전 계층</h2>
+      <p><strong>1차 (5FQL):</strong> 부피 충돌 + H-bond 상실 + 극성 불일치 → 모듈 불안정.</p>
+      <p><strong>2차 (클래스):</strong> 접힘 수율·중간체 불리 → ERQC (서열 판독 아님) → 전달↓ / ERAD 가능.</p>
+      <p><strong>종점:</strong> 리소좀 기능 분자↓ → 측정 활성↓.</p>
+      <p><strong>1차로 밀지 않음:</strong> 직접 촉매 파괴 · 전하 플립 · 장거리 알로스테리 단독.</p>
+      <p>
+        AF상 backbone이 WT와 비슷해도 모순 아님:
+        <strong>미묘한 모듈 불안정</strong>만으로도 QC·배달이 깨질 수 있다.
+        네트워크를 유지하면 ER 통과에 긍정적일 <em>수</em> 있다 — 실측 전 가설.
+      </p>
+    </section>
+
+    <section class="block">
+      <h2>시각화</h2>
+      <figure class="figure">
+        <img src="../assets/img/Fig1_Ser152Ile_mechanism_cascade.png" alt="cascade" />
+        <figcaption>Fig 1. 인과 cascade (S 구조 · C 클래스 · H 가설).</figcaption>
+      </figure>
+      <figure class="figure">
+        <img src="../assets/img/Fig2_Ser152Ile_plausibility_ranking.png" alt="ranking" />
+        <figcaption>Fig 2. 기전 개연성 순위.</figcaption>
+      </figure>
+      <figure class="figure">
+        <img src="../assets/img/Fig3_patient_friendly_pipeline.png" alt="pipeline" />
+        <figcaption>Fig 3. 공장(ER) → QC → 폐기·배달 실패 비유.</figcaption>
+      </figure>
+      <figure class="figure">
+        <img src="../assets/img/Fig4_hotspot_2axis_network_vs_catalytic.png" alt="2axis" />
+        <figcaption>Fig 4. 촉매 거리 × 네트워크 중요도. Ser152 = rescue-logic 구역 대표점.</figcaption>
+      </figure>
+    </section>
+
+    <section class="block prose">
+      <h2>3. 비전문가 한 줄</h2>
+      <div class="callout">
+        “칼날(촉매)이 부러졌다”기보다
+        “조립 공장에서 수율이 떨어져 폐기·미배달”에 가깝다고 <em>읽을 구조적 이유</em>가 있다.
+        개인 중증도는 임상 영역.
+      </div>
+    </section>
+
+    <section class="block prose">
+      <h2>4. 이 페이지가 아닌 것</h2>
+      <ul>
+        <li>전 변이 지도 최종판 · “최중요 잔기” 증명 · 치료 프로토콜</li>
+        <li>152에 약을 붙인다는 설계</li>
+      </ul>
+      <p><a href="compute.html">계산</a> · <a href="synthesis.html">종합</a></p>
+    </section>
+  </main>
+  <footer class="footer"><div class="wrap"><div>IDSX Lab · Module</div><div><a href="../index.html">← Home</a></div></div></footer>
+  <script src="../assets/js/nav.js"></script>
+</body>
+</html>

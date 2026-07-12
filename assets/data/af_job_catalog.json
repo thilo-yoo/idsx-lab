@@ -1,0 +1,50 @@
+{
+  "updated": "2026-07-11T17:55",
+  "construct": "P22304 residues 34-550 (517 aa), template ON",
+  "jobs": [
+    {
+      "id": 1,
+      "key": "WT",
+      "status": "done",
+      "name": "IDS wild type",
+      "mutations": [],
+      "folder": "fold_ids_wild_type/",
+      "ptm": 0.97,
+      "rmsd_vs_wt": null
+    },
+    {
+      "id": 2,
+      "key": "S152I",
+      "status": "done",
+      "name": "S152I IDS",
+      "mutations": ["S152I"],
+      "folder": "fold_s152i_ids /",
+      "ptm": 0.96,
+      "rmsd_vs_wt": 0.3725
+    },
+    {
+      "id": 3,
+      "key": "MULTI_x4_modulePlus",
+      "status": "done",
+      "name": "Y108C_D148N_S152I_D308G",
+      "mutations": ["Y108C", "D148N", "S152I", "D308G"],
+      "folder": "fold_y108c_d148n_s152i_d308g_ids/",
+      "ptm": 0.96,
+      "rmsd_vs_wt": 0.3521,
+      "note": "Valid 4-mut cocktail. Duplicate r88c-named folders removed 17:55."
+    }
+  ],
+  "deleted_duplicates": [
+    "fold_r88c_y108c_s152i_d308g_ids/ (top-level; same sequence as #3)",
+    "fold_ids_wild_type/fold_r88c_y108c_s152i_d308g_ids/",
+    "fold_ids_wild_type/fold_y108c_d148n_s152i_d308g_ids/ (nested copy)"
+  ],
+  "pending": [
+    {
+      "key": "MULTI_x4_rankedFaces",
+      "mutations": ["R88C", "Y108C", "S152I", "D308G"],
+      "file": "AF2_runs/hotspot_panel_FASTA/multi_mutant/MULTI_x4_rankedFaces.fasta"
+    }
+  ],
+  "takeaway": "Only three index folders remain: WT, S152I, MULTI×4 (Y108C+D148N+S152I+D308G)."
+}

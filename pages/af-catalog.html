@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AF 목록 — IDSX Lab</title>
+  <link rel="stylesheet" href="../assets/css/style.css" />
+  <style>
+    .af-subnav { display:flex; flex-wrap:wrap; gap:.5rem; margin:0 0 1.2rem; }
+    .af-subnav a {
+      padding:.4rem .85rem; border-radius:999px; border:1px solid var(--border);
+      color:var(--muted); font-size:.88rem; text-decoration:none;
+    }
+    .af-subnav a:hover { color:var(--text); border-color:var(--accent); text-decoration:none; }
+    .af-subnav a.on {
+      color:#0b1220; font-weight:700; border-color:transparent;
+      background:linear-gradient(135deg,#4f91c8,#5bb98a);
+    }
+    .job {
+      border:1px solid var(--border); border-radius:14px;
+      padding:1.1rem 1.2rem; margin:0 0 1rem;
+      background:linear-gradient(180deg,rgba(255,255,255,.03),transparent),var(--card);
+    }
+    .job h3 {
+      margin:0 0 .55rem; font-size:1.08rem;
+      display:flex; flex-wrap:wrap; gap:.4rem; align-items:center;
+    }
+    .job p { margin:.22rem 0; color:var(--muted); font-size:.9rem; }
+    .num {
+      display:inline-flex; width:1.55rem; height:1.55rem; border-radius:7px;
+      align-items:center; justify-content:center;
+      background:rgba(91,159,212,.22); color:var(--accent); font-weight:800; font-size:.82rem;
+    }
+    .pill {
+      font-size:.68rem; font-weight:700; padding:.12rem .45rem;
+      border-radius:999px; border:1px solid var(--border); color:var(--muted);
+    }
+    .pill.ok { color:var(--ok); border-color:rgba(107,207,142,.45); }
+    .pill.info { color:var(--accent); border-color:rgba(91,159,212,.4); }
+    .thumbs {
+      display:grid; grid-template-columns:repeat(auto-fill,minmax(138px,1fr));
+      gap:.55rem; margin-top:.8rem;
+    }
+    .thumbs a {
+      border:1px solid var(--border); border-radius:8px; overflow:hidden;
+      background:#0a0f18; text-decoration:none;
+    }
+    .thumbs a:hover { border-color:var(--accent); }
+    .thumbs img { width:100%; display:block; aspect-ratio:4/3; object-fit:cover; }
+    .thumbs span { display:block; font-size:.7rem; color:var(--muted); padding:.28rem .4rem; }
+  </style>
+</head>
+<body>
+  <div data-nav></div>
+  <main class="wrap">
+    <section class="hero">
+      <div class="kicker">AlphaFold Server · 정리된 인덱스만 · 2026-07-11 17:55</div>
+      <h1>AF 결과 목록</h1>
+      <p class="lede">
+        디스크에 <strong style="color:var(--text)">유효 job 폴더 3개만</strong> 남김.
+        동일 서열 중복 폴더는 삭제함. 뷰어 → <a href="structures.html">AF구조</a>
+      </p>
+      <div class="af-subnav">
+        <a class="on" href="af-catalog.html">① AF목록</a>
+        <a href="structures.html">② AF구조</a>
+        <a href="compute.html">③ 계산</a>
+      </div>
+      <div class="badges">
+        <span class="badge ok">index 3 folders</span>
+        <span class="badge info">34–550 · template ON</span>
+        <span class="badge purple">중복 삭제 완료</span>
+      </div>
+    </section>
+
+    <section class="block prose">
+      <h2>A. 인덱스 (현재 디스크)</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>#</th><th>이름</th><th>변이</th><th>vs WT RMSD</th><th>폴더</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td><strong>WT</strong></td>
+            <td>—</td>
+            <td>—</td>
+            <td><span class="mono">fold_ids_wild_type/</span></td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td><strong>S152I</strong></td>
+            <td>S152I</td>
+            <td>0.37 Å</td>
+            <td><span class="mono">fold_s152i_ids /</span></td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td><strong>MULTI×4</strong></td>
+            <td>Y108C + D148N + S152I + D308G</td>
+            <td><strong>0.35 Å</strong></td>
+            <td><span class="mono">fold_y108c_d148n_s152i_d308g_ids/</span></td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="callout">
+        <strong>삭제한 중복</strong><br/>
+        · <span class="mono">fold_r88c_y108c_s152i_d308g_ids/</span> (이름만 R88C, 서열=#3)<br/>
+        · <span class="mono">fold_ids_wild_type/</span> 안의 nested multi 복사본 2개
+      </div>
+      <div class="callout ok">
+        4중 핫스팟이어도 RMSD ≈ 단일 S152I → AF 좌표로 핫스팟 순위 심판 불가.
+      </div>
+    </section>
+
+    <section class="block">
+      <h2>B. Job 카드</h2>
+
+      <article class="job" id="j1">
+        <h3><span class="num">1</span> WT <span class="pill ok">완료</span> <span class="pill info">control</span></h3>
+        <p>pTM <strong>0.97</strong> · P22304 34–550 · 변이 없음</p>
+        <p>폴더: <span class="mono">Desktop/IDSX/fold_ids_wild_type/</span></p>
+        <div class="thumbs">
+          <a href="../assets/img/AF3_structure_WT_solid.png"><img src="../assets/img/AF3_structure_WT_solid.png" alt=""/><span>cyan</span></a>
+          <a href="../assets/img/AF3_structure_WT_pLDDT.png"><img src="../assets/img/AF3_structure_WT_pLDDT.png" alt=""/><span>pLDDT</span></a>
+        </div>
+      </article>
+
+      <article class="job" id="j2">
+        <h3><span class="num">2</span> S152I <span class="pill ok">완료</span> <span class="pill info">단일</span></h3>
+        <p>pTM <strong>0.96</strong> · vs WT <strong>0.37 Å</strong> · U152 0.91 Å · pLDDT 98.8→84.2</p>
+        <p>폴더: <span class="mono">Desktop/IDSX/fold_s152i_ids /</span></p>
+        <div class="thumbs">
+          <a href="../assets/img/AF3_structure_S152I_solid.png"><img src="../assets/img/AF3_structure_S152I_solid.png" alt=""/><span>orange</span></a>
+          <a href="../assets/img/AF3_structure_overlay_WT_S152I.png"><img src="../assets/img/AF3_structure_overlay_WT_S152I.png" alt=""/><span>겹침</span></a>
+          <a href="../assets/img/AF3_diff_only_segments.png"><img src="../assets/img/AF3_diff_only_segments.png" alt=""/><span>차이만</span></a>
+          <a href="../assets/img/Fig_AF3_WT_vs_S152I_profiles.png"><img src="../assets/img/Fig_AF3_WT_vs_S152I_profiles.png" alt=""/><span>프로파일</span></a>
+        </div>
+      </article>
+
+      <article class="job" id="j3">
+        <h3><span class="num">3</span> MULTI×4 <span class="pill ok">완료</span> <span class="pill info">4중</span></h3>
+        <p>변이: <strong>Y108C + D148N + S152I + D308G</strong></p>
+        <p>pTM <strong>0.96</strong> · vs WT <strong>0.35 Å</strong></p>
+        <p>자리 이동 Å: U108=1.05 · U148=0.75 · U152=0.83 · U308=0.06</p>
+        <p>폴더: <span class="mono">Desktop/IDSX/fold_y108c_d148n_s152i_d308g_ids/</span></p>
+        <div class="thumbs">
+          <a href="../assets/img/AF3_multi_overlay_WT.png"><img src="../assets/img/AF3_multi_overlay_WT.png" alt=""/><span>겹침</span></a>
+          <a href="../assets/img/AF3_multi_vs_single_deviation_profile.png"><img src="../assets/img/AF3_multi_vs_single_deviation_profile.png" alt=""/><span>단일 vs 4중</span></a>
+          <a href="../assets/img/AF3_multi_plddt_profiles.png"><img src="../assets/img/AF3_multi_plddt_profiles.png" alt=""/><span>pLDDT</span></a>
+          <a href="../assets/img/AF3_multi_site_bars.png"><img src="../assets/img/AF3_multi_site_bars.png" alt=""/><span>자리 막대</span></a>
+          <a href="../assets/img/AF3_multi_diff_only.png"><img src="../assets/img/AF3_multi_diff_only.png" alt=""/><span>차이만</span></a>
+        </div>
+      </article>
+    </section>
+
+    <section class="block prose">
+      <h2>C. 대기 (미실행)</h2>
+      <p>진짜 <strong>R88C+Y108C+S152I+D308G</strong> →
+        <span class="mono">AF2_runs/hotspot_panel_FASTA/multi_mutant/MULTI_x4_rankedFaces.fasta</span>
+      </p>
+      <p>JSON 인덱스: <a href="../assets/data/af_job_catalog.json"><span class="mono">af_job_catalog.json</span></a></p>
+    </section>
+
+    <section class="block">
+      <div class="actions">
+        <a class="btn btn-primary" href="structures.html">AF구조 →</a>
+        <a class="btn btn-ghost" href="compute.html">계산</a>
+        <a class="btn btn-ghost" href="../index.html">Home</a>
+      </div>
+    </section>
+  </main>
+  <footer class="footer">
+    <div class="wrap">
+      <div>IDSX Lab · AF 목록 · 3 folders only</div>
+      <div><a href="../index.html">← Home</a></div>
+    </div>
+  </footer>
+  <script src="../assets/js/nav.js"></script>
+</body>
+</html>

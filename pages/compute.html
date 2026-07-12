@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>계산 — IDSX Lab</title>
+  <link rel="stylesheet" href="../assets/css/style.css" />
+</head>
+<body>
+  <div data-nav></div>
+  <main class="wrap">
+    <section class="hero">
+      <div class="kicker">Computational evidence · hypothesis layer</div>
+      <h1>계산이 프레임을<br/>어떻게 지지·제한하는가</h1>
+      <p class="lede">
+        판결문이 아니라 가설 층. 2축 triage + AlphaFold Server WT vs S152I.
+        fold 유사 ≠ ER 통과 · 열안정 보장.
+      </p>
+    </section>
+
+    <section class="block prose">
+      <h2>1. 도구</h2>
+      <table>
+        <thead><tr><th>도구</th><th>IDSX</th></tr></thead>
+        <tbody>
+          <tr><td>AlphaFold Server (AF3 계열)</td><td>✅ 메인 — WT·S152I 완료</td></tr>
+          <tr><td>ColabFold / 로컬 AF2</td><td>선택 교차확인</td></tr>
+          <tr><td>FoldX / Rosetta ΔΔG</td><td>다음 (모듈 불안정 수치)</td></tr>
+          <tr><td>RFdiffusion</td><td>후속 — <strong>표면 interface set</strong>에만</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="block prose">
+      <h2>2. 2축 맵 (프로젝트 전역)</h2>
+      <p>X = 촉매 거리 · Y = 네트워크 중요도 프록시. 오른쪽 상단 = rescue-logic.</p>
+      <figure class="figure">
+        <img src="../assets/img/Fig4_hotspot_2axis_network_vs_catalytic.png" alt="2axis" />
+        <figcaption>Ser152·Asp308 대표 · FGly84/Asp45/Arg88 제외·주의 대조.</figcaption>
+      </figure>
+      <figure class="figure">
+        <img src="../assets/img/Fig4b_hotspot_table_for_AF2.png" alt="table" />
+        <figcaption>계산 패널용 잔기 표.</figcaption>
+      </figure>
+    </section>
+
+    <section class="block prose">
+      <h2>3. 구조 직접 보기</h2>
+      <p>
+        job 목록: <a href="af-catalog.html">AF 목록</a> ·
+        사진·3D: <a href="structures.html">AF 구조</a>
+      </p>
+      <div class="grid grid-2">
+        <figure class="figure">
+          <img src="../assets/img/AF3_structure_WT_solid.png" alt="WT cyan" />
+          <figcaption><strong style="color:#00B4D8">WT = cyan</strong> · 노랑 = 152</figcaption>
+        </figure>
+        <figure class="figure">
+          <img src="../assets/img/AF3_structure_S152I_solid.png" alt="S152I orange" />
+          <figcaption><strong style="color:#E85D04">S152I = orange</strong> · 노랑 = 152</figcaption>
+        </figure>
+      </div>
+      <figure class="figure">
+        <img src="../assets/img/AF3_structure_overlay_WT_S152I.png" alt="overlay" />
+        <figcaption>정렬 겹침: <strong style="color:#00B4D8">cyan WT</strong> · <strong style="color:#E85D04">orange S152I</strong> (거의 동일 fold — 정상)</figcaption>
+      </figure>
+      <p>차이만 보고 싶으면 → <a href="structures.html">AF 구조 §1b</a> · 다중 변이 → <a href="structures.html">§1c MULTI×4</a></p>
+      <figure class="figure">
+        <img src="../assets/img/AF3_diff_only_segments.png" alt="diff only" />
+        <figcaption>Difference-only (이동 &lt;0.4 Å 숨김). U152 ~0.9 Å · 최대는 U449 루프 ~3.5 Å</figcaption>
+      </figure>
+      <figure class="figure">
+        <img src="../assets/img/AF3_multi_vs_single_deviation_profile.png" alt="multi profile" />
+        <figcaption>MULTI×4(Y108C+D148N+S152I+D308G) vs S152I only — 전역 RMSD 둘 다 ~0.35–0.37 Å</figcaption>
+      </figure>
+    </section>
+
+    <section class="block prose">
+      <h2>4. AlphaFold Server — 수치 요약</h2>
+      <p>
+        <span class="mono">fold_ids_wild_type/</span> ·
+        <span class="mono">fold_s152i_ids/</span> ·
+        분석 <span class="mono">AF2_runs/AF3_analysis/</span>
+      </p>
+      <table>
+        <thead><tr><th>항목</th><th>결과</th></tr></thead>
+        <tbody>
+          <tr><td>서열</td><td>UniProt 34–550 · S152↔I152 확인</td></tr>
+          <tr><td>템플릿</td><td>양쪽 ON</td></tr>
+          <tr><td>pTM</td><td>WT 0.97 · S152I 0.96</td></tr>
+          <tr><td>Global Cα RMSD</td><td><strong>~0.37 Å</strong></td></tr>
+          <tr><td>pLDDT U152</td><td><strong>98.8 → 84.2 (Δ −14.6)</strong></td></tr>
+          <tr><td>pLDDT U145–155</td><td>평균 큰 폭 하락</td></tr>
+          <tr><td>AF-WT vs 5FQL</td><td>~0.34 Å</td></tr>
+        </tbody>
+      </table>
+      <figure class="figure">
+        <img src="../assets/img/Fig_AF3_WT_vs_S152I_profiles.png" alt="profiles" />
+        <figcaption>전 사슬 pLDDT · ΔpLDDT · Cα 편차. 노란선 U152.</figcaption>
+      </figure>
+      <figure class="figure">
+        <img src="../assets/img/Fig_AF3_zoom_module.png" alt="zoom" />
+        <figcaption>U100–170 모듈 구간 확대.</figcaption>
+      </figure>
+    </section>
+
+    <section class="block prose">
+      <h2>5. 해석 규율 (ER·열안정과 연결)</h2>
+      <div class="callout ok">
+        <strong>지지:</strong> native-like 좌표 모델은 존재 가능.
+        모듈 구간 자신감↓ → 미묘한 불안정 힌트.
+        표면 패치 정의용 좌표로 쓸 수 있다.
+      </div>
+      <div class="callout warn">
+        <strong>비지지:</strong> RMSD 작음 = 안정·ER 통과·무해.
+        pLDDT↓ = ERAD 증명.
+        AF = 열안정 보장.
+      </div>
+      <div class="callout">
+        <strong>프레임 정합:</strong> 대붕괴 가설 약화.
+        “네트워크만 유지되면 QC 통과에 유리할 수 있다”는
+        <em>기각되지 않음</em> — ΔΔG·세포가 다음.
+      </div>
+      <p>제한: 템플릿 ON · 시드 상이. 교차확인 시 template off / ΔΔG 권장.</p>
+    </section>
+
+    <section class="block prose">
+      <h2>6. 다음 계산 큐</h2>
+      <ol>
+        <li>ΔΔG (WT vs S152I + 대조)</li>
+        <li>(선택) template off</li>
+        <li>형제 TIER1 동일 파이프라인</li>
+        <li>패치 1개 확정 후 RFdiffusion — competence 기준 사전 등록</li>
+      </ol>
+    </section>
+  </main>
+  <footer class="footer"><div class="wrap"><div>IDSX Lab · Compute</div><div><a href="../index.html">← Home</a></div></div></footer>
+  <script src="../assets/js/nav.js"></script>
+</body>
+</html>

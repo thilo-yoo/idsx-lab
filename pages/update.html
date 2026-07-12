@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>운영 — IDSX Lab</title>
+  <link rel="stylesheet" href="../assets/css/style.css" />
+</head>
+<body>
+  <div data-nav></div>
+  <main class="wrap">
+    <section class="hero">
+      <div class="kicker">Ops · local-first</div>
+      <h1>열고 고치기</h1>
+      <p class="lede">정적 HTML · GitHub 없이도 사용. 내비는 <span class="mono">nav.js</span>.</p>
+    </section>
+
+    <section class="block prose">
+      <h2>로컬</h2>
+      <div class="callout mono" style="font-size:.85rem">
+        cd ~/Desktop/IDSX/website<br/>
+        python3 -m http.server 8765<br/>
+        → http://localhost:8765
+      </div>
+    </section>
+
+    <section class="block prose">
+      <h2>페이지 역할 (v3)</h2>
+      <table>
+        <thead><tr><th>파일</th><th>내용</th></tr></thead>
+        <tbody>
+          <tr><td><span class="mono">index.html</span></td><td>포털 홈</td></tr>
+          <tr><td><span class="mono">synthesis.html</span></td><td>전 논의 종합</td></tr>
+          <tr><td><span class="mono">framework.html</span></td><td>프레임 · ER · 열안정</td></tr>
+          <tr><td><span class="mono">module-case.html</span></td><td>Ser152 모듈 사례</td></tr>
+          <tr><td><span class="mono">compute.html</span></td><td>2축 · 해석 규율</td></tr>
+          <tr><td><span class="mono">af-catalog.html</span></td><td><strong>AF job 목록 (카탈로그)</strong></td></tr>
+          <tr><td><span class="mono">structures.html</span></td><td><strong>AF 뷰어</strong> (그림·3D·차이)</td></tr>
+          <tr><td><span class="mono">ambroxol-gcase.html</span></td><td>GCase 레퍼런스</td></tr>
+          <tr><td><span class="mono">data-audit.html</span></td><td>데이터 검증</td></tr>
+          <tr><td><span class="mono">notebook.html</span></td><td>타임라인 노트</td></tr>
+        </tbody>
+      </table>
+      <p>구주소 <span class="mono">question.html</span> / <span class="mono">ser152ile.html</span> → 리다이렉트 유지.</p>
+    </section>
+
+    <section class="block prose">
+      <h2>디스크 원천 (사이트 밖)</h2>
+      <ul>
+        <li><span class="mono">IDSX_한눈에_로직맵_다음스텝.md</span></li>
+        <li><span class="mono">IDSX_대화정리_안정성_ER_암브록솔_2026-07-11.md</span></li>
+        <li><span class="mono">Ser152Ile_Mechanism_Review/</span></li>
+        <li><span class="mono">AF2_runs/AF3_analysis/</span></li>
+        <li><span class="mono">Advisor_Briefing_Package/</span></li>
+      </ul>
+    </section>
+  </main>
+  <footer class="footer"><div class="wrap"><div>IDSX Lab · Ops</div><div><a href="../index.html">← Home</a></div></div></footer>
+  <script src="../assets/js/nav.js"></script>
+</body>
+</html>

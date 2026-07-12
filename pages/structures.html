@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AF 구조 보기 — IDSX Lab</title>
+  <link rel="stylesheet" href="../assets/css/style.css" />
+  <style>
+    .viewer-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+    @media (max-width: 900px) {
+      .viewer-grid { grid-template-columns: 1fr; }
+    }
+    .viewer-box {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      background: #0a0f18;
+    }
+    .viewer-box h3 {
+      margin: 0;
+      padding: .7rem 1rem;
+      font-size: .95rem;
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,.03);
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+    }
+    .swatch {
+      display: inline-block;
+      width: 12px; height: 12px;
+      border-radius: 3px;
+      border: 1px solid rgba(255,255,255,.35);
+    }
+    .swatch.wt { background: #00B4D8; }
+    .swatch.mut { background: #E85D04; }
+    .swatch.site { background: #FFD60A; }
+    .viewer-box .hint {
+      padding: .35rem 1rem .6rem;
+      font-size: .75rem;
+      color: var(--muted);
+    }
+    #v-wt, #v-mut, #v-overlay {
+      width: 100%;
+      height: 400px;
+      position: relative;
+    }
+    #v-overlay { height: 460px; }
+    .viewer-controls {
+      display: flex; flex-wrap: wrap; gap: .5rem;
+      margin: .8rem 0 1rem;
+    }
+    .viewer-controls button {
+      background: var(--card);
+      color: var(--text);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: .4rem .75rem;
+      cursor: pointer;
+      font-size: .85rem;
+    }
+    .viewer-controls button:hover { border-color: var(--accent); }
+    .legend-bar {
+      display: flex; flex-wrap: wrap; gap: 1rem;
+      margin: .5rem 0 1rem;
+      font-size: .9rem;
+      color: var(--muted);
+    }
+    .legend-bar span { display: inline-flex; align-items: center; gap: .4rem; }
+    .note-local { font-size: .82rem; color: var(--warn); }
+  </style>
+  <script src="https://3Dmol.org/build/3Dmol-min.js"></script>
+</head>
+<body>
+  <div data-nav></div>
+  <main class="wrap">
+    <section class="hero">
+      <div class="kicker">AlphaFold Server · viewer (스냅샷 · 차이 · 3D)</div>
+      <h1>AF 구조 보기</h1>
+      <p class="lede">
+        job <strong>목록·상태</strong>는
+        <a href="af-catalog.html"><strong>AF목록</strong></a> 페이지.
+        여기는 그림·3D로 <strong>직접 확인</strong>하는 페이지.
+      </p>
+      <div class="legend-bar" style="margin-bottom:.75rem">
+        <span><a href="af-catalog.html" style="color:var(--accent)">① AF목록</a></span>
+        <span><strong style="color:var(--text)">② AF구조 (지금)</strong></span>
+        <span><a href="compute.html" style="color:var(--accent)">③ 계산</a></span>
+      </div>
+      <div class="legend-bar">
+        <span><i class="swatch wt"></i> WT cyan</span>
+        <span><i class="swatch mut"></i> S152I orange</span>
+        <span><i class="swatch site"></i> U152 yellow</span>
+      </div>
+      <p class="note-local">
+        3D: <span class="mono">cd ~/Desktop/IDSX/website && python3 -m http.server 8765</span>
+        → http://localhost:8765/pages/structures.html
+      </p>
+    </section>
+
+    <section class="block">
+      <h2>1. 스냅샷 (고정 색 · 비교용)</h2>
+      <div class="grid grid-2">
+        <figure class="figure">
+          <img src="../assets/img/AF3_structure_WT_solid.png" alt="WT cyan" />
+          <figcaption><span class="swatch wt"></span> WT · cyan</figcaption>
+        </figure>
+        <figure class="figure">
+          <img src="../assets/img/AF3_structure_S152I_solid.png" alt="S152I orange" />
+          <figcaption><span class="swatch mut"></span> S152I · orange</figcaption>
+        </figure>
+      </div>
+      <figure class="figure">
+        <img src="../assets/img/AF3_structure_side_by_side_colors.png" alt="side by side" />
+        <figcaption>나란히: 왼쪽 cyan / 오른쪽 orange</figcaption>
+      </figure>
+      <figure class="figure">
+        <img src="../assets/img/AF3_structure_overlay_WT_S152I.png" alt="overlay" />
+        <figcaption>정렬 후 겹침: cyan = WT · orange = S152I · 노랑 = 152. 전체가 비슷해 보이는 것이 정상 (global RMSD ~0.37 Å).</figcaption>
+      </figure>
+    </section>
+
+    <section class="block prose">
+      <h2>1b. 차이 나는 구간만 (추가 레이어)</h2>
+      <div class="callout">
+        전체가 똑같은 것처럼 보이는 이유: 잔기의 <strong>절반 이상</strong>이 Cα 이동 &lt; 0.1 Å 수준.
+        아래는 정렬 후 <strong>실제로 움직인 자리만</strong> 강조한 그림이다 (기존 오버레이를 대체하지 않음).
+      </div>
+      <table>
+        <thead><tr><th>지표</th><th>값</th></tr></thead>
+        <tbody>
+          <tr><td>Global Cα RMSD</td><td>~0.37 Å</td></tr>
+          <tr><td>Cα 이동 ≥ 0.5 Å</td><td>19 residues</td></tr>
+          <tr><td>Cα 이동 ≥ 1.0 Å</td><td>9 residues</td></tr>
+          <tr><td>U152 (변이 자리)</td><td><strong>~0.91 Å</strong> (상위권이지만 최대는 아님)</td></tr>
+          <tr><td>최대 차이</td><td>U449 부근 ~3.5 Å (저-pLDDT 루프 · 해석 주의)</td></tr>
+        </tbody>
+      </table>
+
+      <figure class="figure">
+        <img src="../assets/img/AF3_diff_per_residue_bar.png" alt="per-residue deviation bar" />
+        <figcaption>
+          잔기별 Cα 편차 막대. 회색=거의 동일 · 살구≥0.4 Å · 주황≥1.0 Å · 점선=U152.
+          대부분이 바닥에 붙어 있어서 “전체가 똑같아” 보이는 것.
+        </figcaption>
+      </figure>
+
+      <figure class="figure">
+        <img src="../assets/img/AF3_diff_on_structure.png" alt="diff on structure" />
+        <figcaption>
+          구조 위 차이 맵: 회색=공통 fold · 노랑→빨강=이동 ≥0.4 Å · 청록 점=U152.
+        </figcaption>
+      </figure>
+
+      <figure class="figure">
+        <img src="../assets/img/AF3_diff_only_segments.png" alt="diff only segments" />
+        <figcaption>
+          <strong>Difference-only:</strong> 이동 &lt; 0.4 Å 구간은 숨김.
+          cyan=WT · orange=S152I · 노랑=U152. “다른 조각”만 남긴 뷰.
+        </figcaption>
+      </figure>
+
+      <div class="grid grid-2">
+        <figure class="figure">
+          <img src="../assets/img/AF3_diff_zoom_module_vectors.png" alt="module zoom" />
+          <figcaption>
+            모듈 확대 U140–165. 노란 막대=WT→S152I 변위 벡터.
+            U152 이동 ~0.9 Å (작지만 0은 아님).
+          </figcaption>
+        </figure>
+        <figure class="figure">
+          <img src="../assets/img/AF3_diff_zoom_largest.png" alt="largest zoom" />
+          <figcaption>
+            최대 차이 구간 확대 (~U445–455). pLDDT 낮은 루프라
+            “생물학적으로 의미 있는 모듈 차이”와 구분해서 볼 것.
+          </figcaption>
+        </figure>
+      </div>
+
+      <div class="callout warn">
+        <strong>읽는 법:</strong> 전체 오버레이가 겹친다 = AF가 native-like fold를 비슷하게 그림.
+        차이 맵에서 U152 근처와 일부 루프만 움직인다 = <em>대붕괴가 아니라 국소·제한적 차이</em>.
+        최대 피크가 C-말단 저신뢰 루프인 점은 과대해석 금지.
+        숫자 표: <a href="../assets/structures/per_residue_ca_diff.csv"><span class="mono">per_residue_ca_diff.csv</span></a>
+      </div>
+    </section>
+
+    <section class="block prose">
+      <h2>1c. MULTI×4 결과 (핫스팟 4개 동시) — 추가</h2>
+      <div class="callout ok">
+        <strong>유효 MULTI×4 폴더 (유일):</strong>
+        <span class="mono">Desktop/IDSX/fold_y108c_d148n_s152i_d308g_ids/</span><br/>
+        서열: <strong>Y108C + D148N + S152I + D308G</strong> ✅<br/>
+        동일 서열 중복 폴더(<span class="mono">fold_r88c_…</span> 등)는 <strong>삭제함</strong>.
+        목록: <a href="af-catalog.html">AF목록</a>
+      </div>
+      <table>
+        <thead><tr><th>비교</th><th>Global RMSD</th><th>≥1 Å 잔기</th><th>U152 이동</th><th>mean pLDDT</th></tr></thead>
+        <tbody>
+          <tr><td>WT vs S152I</td><td>0.37 Å</td><td>9</td><td>0.91 Å</td><td>94.7</td></tr>
+          <tr><td>WT vs <strong>MULTI×4</strong></td><td><strong>0.35 Å</strong></td><td>16</td><td>0.83 Å</td><td>94.6</td></tr>
+        </tbody>
+      </table>
+      <p>
+        <strong>결론:</strong> 변이를 4개 한꺼번에 넣어도 AF 전체 fold는 여전히 WT와 거의 같음.
+        → 핫스팟 순위가 “AF 좌표를 크게 바꾸는 순위”는 아님.
+        국소: U108 이동 1.05 Å · pLDDT 75.8 (단일 S152I보다 자리 신호는 조금 더 보임).
+      </p>
+      <figure class="figure">
+        <img src="../assets/img/AF3_multi_vs_single_deviation_profile.png" alt="multi vs single" />
+        <figcaption>주황=S152I only · 보라=MULTI×4 · 점선=다중 변이 자리. 둘 다 바닥이 대부분.</figcaption>
+      </figure>
+      <figure class="figure">
+        <img src="../assets/img/AF3_multi_plddt_profiles.png" alt="plddt multi" />
+        <figcaption>pLDDT 세 곡선. MULTI도 전반 고신뢰 · 국소 딥.</figcaption>
+      </figure>
+      <div class="grid grid-2">
+        <figure class="figure">
+          <img src="../assets/img/AF3_multi_site_bars.png" alt="site bars" />
+          <figcaption>자리별 이동·pLDDT: 단일 vs 4중</figcaption>
+        </figure>
+        <figure class="figure">
+          <img src="../assets/img/AF3_multi_overlay_WT.png" alt="multi overlay" />
+          <figcaption>WT cyan · MULTI purple — 또 거의 겹침</figcaption>
+        </figure>
+      </div>
+      <figure class="figure">
+        <img src="../assets/img/AF3_multi_diff_only.png" alt="multi diff only" />
+        <figcaption>MULTI×4 difference-only vs WT (&lt;0.4 Å 숨김)</figcaption>
+      </figure>
+      <p>분석 전문: <span class="mono">AF2_runs/AF3_analysis/multi_x4/00_MULTI_x4_분석.md</span></p>
+    </section>
+
+    <section class="block">
+      <h2>2. 인터랙티브 3D</h2>
+      <div class="viewer-controls">
+        <button type="button" onclick="loadAll()">다시 불러오기</button>
+        <button type="button" onclick="setStyle('cartoon')">Cartoon</button>
+        <button type="button" onclick="setStyle('stick')">Stick</button>
+        <button type="button" onclick="spinToggle()">Spin</button>
+        <button type="button" onclick="toggleWt()">Overlay: WT 표시 on/off</button>
+        <button type="button" onclick="toggleMut()">Overlay: S152I 표시 on/off</button>
+      </div>
+      <div id="load-status" style="color:var(--muted); font-size:.85rem; margin-bottom:.8rem">로딩 중…</div>
+
+      <div class="viewer-grid">
+        <div class="viewer-box">
+          <h3><i class="swatch wt"></i> WT only</h3>
+          <div id="v-wt"></div>
+          <div class="hint">청록 단일 색 · 노란 구 = Ser152</div>
+        </div>
+        <div class="viewer-box">
+          <h3><i class="swatch mut"></i> S152I only</h3>
+          <div id="v-mut"></div>
+          <div class="hint">주황 단일 색 · 노란 구 = Ile152</div>
+        </div>
+      </div>
+
+      <div class="viewer-box" style="margin-top:1rem">
+        <h3>
+          <i class="swatch wt"></i> + <i class="swatch mut"></i>
+          Overlay (Kabsch 정렬: WT → S152I 좌표계)
+        </h3>
+        <div id="v-overlay"></div>
+        <div class="hint">
+          한 화면에 두 모델. 색이 다르므로 어긋난 구간이 보이면 쉽게 구분됩니다.
+          (전역은 거의 겹침 · RMSD ~0.37 Å)
+        </div>
+      </div>
+    </section>
+
+    <section class="block prose">
+      <h2>3. (참고) pLDDT 색 버전</h2>
+      <p>신뢰도 색은 비교보다 “어디가 불안한가”용. 나란히 두면 둘 다 비슷해 보여 헷갈릴 수 있음.</p>
+      <div class="grid grid-2">
+        <figure class="figure">
+          <img src="../assets/img/AF3_structure_WT_pLDDT.png" alt="WT pLDDT" />
+          <figcaption>WT pLDDT</figcaption>
+        </figure>
+        <figure class="figure">
+          <img src="../assets/img/AF3_structure_S152I_pLDDT.png" alt="S152I pLDDT" />
+          <figcaption>S152I pLDDT</figcaption>
+        </figure>
+      </div>
+      <p>수치·해석: <a href="compute.html">계산 페이지</a></p>
+    </section>
+  </main>
+  <footer class="footer">
+    <div class="wrap">
+      <div>IDSX Lab · Structures (color-coded)</div>
+      <div><a href="../index.html">← Home</a></div>
+    </div>
+  </footer>
+  <script src="../assets/js/nav.js"></script>
+  <script>
+    const RES_152 = 119;
+    const COLOR_WT = '0x00B4D8';
+    const COLOR_MUT = '0xE85D04';
+    const COLOR_SITE = 'yellow';
+
+    let viewers = {};
+    let models = { overlayWt: null, overlayMut: null };
+    let spinning = false;
+    let styleMode = 'cartoon';
+    let showWt = true;
+    let showMut = true;
+    let raw = { wt: null, mut: null, wtAligned: null };
+
+    function styleSpec(color) {
+      if (styleMode === 'stick') return { stick: { color: color, radius: 0.15 } };
+      return { cartoon: { color: color, style: 'rectangle' } };
+    }
+
+    function highlight152(viewer) {
+      viewer.addStyle(
+        { resi: RES_152 },
+        { sphere: { color: COLOR_SITE, radius: 0.65 }, stick: { color: COLOR_SITE, radius: 0.2 } }
+      );
+    }
+
+    function paintSingle(viewer, data, fmt, color) {
+      viewer.removeAllModels();
+      viewer.addModel(data, fmt);
+      viewer.setStyle({}, styleSpec(color));
+      highlight152(viewer);
+      viewer.zoomTo();
+      viewer.render();
+    }
+
+    function paintOverlay() {
+      const v = viewers.overlay;
+      if (!v || !raw.wtAligned || !raw.mut) return;
+      v.removeAllModels();
+      models.overlayWt = v.addModel(raw.wtAligned, 'pdb');
+      models.overlayMut = v.addModel(raw.mut, 'pdb');
+      // model index 0 = WT, 1 = MUT
+      if (showWt) v.setStyle({ model: 0 }, styleSpec(COLOR_WT));
+      else v.setStyle({ model: 0 }, {});
+      if (showMut) v.setStyle({ model: 1 }, styleSpec(COLOR_MUT));
+      else v.setStyle({ model: 1 }, {});
+      v.addStyle(
+        { model: 1, resi: RES_152 },
+        { sphere: { color: COLOR_SITE, radius: 0.7 } }
+      );
+      v.zoomTo();
+      v.render();
+    }
+
+    function setStyle(mode) {
+      styleMode = mode;
+      if (viewers.wt && raw.wt) paintSingle(viewers.wt, raw.wt, 'cif', COLOR_WT);
+      if (viewers.mut && raw.mut) paintSingle(viewers.mut, raw.mut, 'pdb', COLOR_MUT);
+      paintOverlay();
+    }
+
+    function spinToggle() {
+      spinning = !spinning;
+      Object.values(viewers).forEach((v) => v && v.spin(spinning ? 'y' : false));
+    }
+
+    function toggleWt() {
+      showWt = !showWt;
+      paintOverlay();
+    }
+    function toggleMut() {
+      showMut = !showMut;
+      paintOverlay();
+    }
+
+    async function fetchText(url) {
+      const r = await fetch(url);
+      if (!r.ok) throw new Error(url + ' → ' + r.status);
+      return r.text();
+    }
+
+    async function loadAll() {
+      const status = document.getElementById('load-status');
+      status.textContent = '구조 파일 로딩 중…';
+      status.style.color = 'var(--muted)';
+      try {
+        const bg = { backgroundColor: '0a0f18' };
+        viewers.wt = $3Dmol.createViewer('v-wt', bg);
+        viewers.mut = $3Dmol.createViewer('v-mut', bg);
+        viewers.overlay = $3Dmol.createViewer('v-overlay', bg);
+
+        const [wtCif, mutPdb, wtAl] = await Promise.all([
+          fetchText('../assets/structures/IDS_WT_model0.cif'),
+          fetchText('../assets/structures/IDS_S152I_model0.pdb'),
+          fetchText('../assets/structures/IDS_WT_model0_aligned_to_S152I.pdb'),
+        ]);
+        raw.wt = wtCif;
+        raw.mut = mutPdb;
+        raw.wtAligned = wtAl;
+
+        paintSingle(viewers.wt, raw.wt, 'cif', COLOR_WT);
+        paintSingle(viewers.mut, raw.mut, 'pdb', COLOR_MUT);
+        paintOverlay();
+
+        status.textContent =
+          '로드 완료 · cyan=WT · orange=S152I · yellow=152 · Overlay는 정렬된 WT + S152I';
+        status.style.color = 'var(--ok)';
+      } catch (e) {
+        console.error(e);
+        status.innerHTML =
+          '로딩 실패 — <code>python3 -m http.server 8765</code> 로 연 뒤 새로고침. (' +
+          e.message +
+          ')';
+        status.style.color = 'var(--danger)';
+      }
+    }
+
+    window.addEventListener('DOMContentLoaded', loadAll);
+    window.addEventListener('resize', () => {
+      Object.values(viewers).forEach((v) => v && v.resize());
+    });
+  </script>
+</body>
+</html>

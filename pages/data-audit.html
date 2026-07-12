@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>데이터 — IDSX Lab</title>
+  <link rel="stylesheet" href="../assets/css/style.css" />
+</head>
+<body>
+  <div data-nav></div>
+  <main class="wrap">
+    <section class="hero">
+      <div class="kicker">Data integrity</div>
+      <h1>재료는 얼마나 단단한가</h1>
+      <p class="lede">주장 층위별로 통과 / 주의 / 미완. 프레임이 아름다워도 재료가 틀리면 무너진다.</p>
+    </section>
+
+    <section class="block">
+      <div class="status-grid">
+        <div class="status-pill"><div class="n" style="color:var(--ok)">PASS</div><div class="l">5FQL · P22304 · AA152=S</div></div>
+        <div class="status-pill"><div class="n" style="color:var(--ok)">PASS</div><div class="l">S152I ClinVar Pathogenic</div></div>
+        <div class="status-pill"><div class="n" style="color:var(--ok)">PASS</div><div class="l">AF 서열·변이 검증</div></div>
+        <div class="status-pill"><div class="n" style="color:var(--warn)">OPEN</div><div class="l">잔존활성 · ΔΔG · 전량 ClinVar</div></div>
+      </div>
+    </section>
+
+    <section class="block prose">
+      <h2>1. 정체·구조</h2>
+      <table>
+        <thead><tr><th>소스</th><th>결과</th></tr></thead>
+        <tbody>
+          <tr><td>5FQL X-ray 2.3 Å</td><td>일치 · Ser152 · ALS84 · OG–D148/T118</td></tr>
+          <tr><td>UniProt P22304</td><td>IDS · 550 aa · AA152=S</td></tr>
+          <tr><td>ClinVar S152I</td><td>c.455G&gt;T · Pathogenic · VCV003255739 (single submitter)</td></tr>
+          <tr><td>UniProt P04062</td><td>GBA1/GCase 레퍼런스 일치</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="block prose">
+      <h2>2. 프로젝트 DB 주의</h2>
+      <ul>
+        <li>중복 행 · 빈 ClinVar_id · c.454 vs c.455 혼동 금지</li>
+        <li>TIER/amenability = 규칙 프록시 ≠ 실험 적합성</li>
+      </ul>
+    </section>
+
+    <section class="block prose">
+      <h2>3. AF 산출</h2>
+      <ul>
+        <li>34–550 · S/I152 확인 · model# → UniProt = model+33</li>
+        <li>해석 규율은 <a href="compute.html">계산</a> · 종합은 <a href="synthesis.html">종합</a></li>
+      </ul>
+    </section>
+
+    <section class="block prose">
+      <h2>4. 층위별 말투</h2>
+      <table>
+        <thead><tr><th>층</th><th>말투</th></tr></thead>
+        <tbody>
+          <tr><td>5FQL 기하</td><td>“구조에서 …”</td></tr>
+          <tr><td>ClinVar</td><td>라벨 + 리뷰 상태</td></tr>
+          <tr><td>네트워크·ER 가설</td><td>“가능성이 있다”</td></tr>
+          <tr><td>AF</td><td>좌표·pLDDT · 안정도 아님</td></tr>
+          <tr><td>열안정</td><td>대리 지표</td></tr>
+          <tr><td>치료·구제</td><td>주장하지 않음</td></tr>
+        </tbody>
+      </table>
+      <p><a href="../assets/data/audit_snapshot.json"><span class="mono">audit_snapshot.json</span></a></p>
+    </section>
+  </main>
+  <footer class="footer"><div class="wrap"><div>IDSX Lab · Data</div><div><a href="../index.html">← Home</a></div></div></footer>
+  <script src="../assets/js/nav.js"></script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+=== PDB 5FQL local ===
+HEADER    HYDROLASE                               11-DEC-15   5FQL
+TITLE: INSIGHTS INTO HUNTER SYNDROME FROM THE STRUCTURE OF IDURONATE-2- SULFATASE
+REMARK   2 RESOLUTION.    2.30 ANGSTROMS.
+Chain A CA residues: 507 range 34-550
+Ser152 present: True resn={'SER'}
+Residue 84 chemical identity in PDB: {'ALS'} (expect formylglycine/ALS)
+CA-related HETATM count: 1
+Ser152 OG contacts <3.5A: [('THR', 118, 'OG1', 2.85), ('ASP', 148, 'OD2', 2.53)]
+
+=== Mutation DB counts ===
+Mutation_Master rows (excl header): 797
+Structural_Annotation position 152 entries: 5
+  c.454A>T RSA=0 dist_cat=10.27 core=Core resolved=True
+  p.Ser152Arg RSA=0 dist_cat=10.27 core=Core resolved=True
+  p.Ser152Arg RSA=0 dist_cat=10.27 core=Core resolved=True
+  p.Ser152Ile RSA=0 dist_cat=10.27 core=Core resolved=True
+  p.Ser152Asn RSA=0 dist_cat=10.27 core=Core resolved=True
+  Master: c.454A>T clin=None type=missense ClinVar=None
+  Master: p.Ser152Ile clin=Pathogenic type=missense ClinVar=None
+  Master: p.Ser152Asn clin=Pathogenic type=missense ClinVar=RCV001563681
+  Master: p.Ser152Arg clin=Pathogenic type=missense ClinVar=None
+  Master: p.Ser152Arg clin=Pathogenic type=missense ClinVar=RCV002018949
+
+Structural_Classification top categories: [('Core destabilization', 405), ('Surface destabilization', 167), ('Truncating variant (structural classification not applicable beyond truncation point)', 136), ('Signal peptide mutation', 32), ('Unknown (구조 미해석 영역)', 19), ('Catalytic residue mutation', 12), ('Calcium-binding disruption', 10), ('Disulfide disruption', 10)]
+
+=== Sanity: claimed catalytic-ish positions ===
+  pos 45: RSA=0 dist_cat=1.33 is_cat=False Ca=True
+  pos 84: RSA=6.6 dist_cat=2.65 is_cat=True Ca=True
+  pos 88: RSA=0 dist_cat=2.77 is_cat=False Ca=False
+  pos 138: RSA=10.3 dist_cat=2.74 is_cat=False Ca=False
+  pos 152: RSA=0 dist_cat=10.27 is_cat=False Ca=False
+  pos 308: RSA=0 dist_cat=10.87 is_cat=False Ca=False
+
+=== UniProt P22304 (API) ===
+UniProt fetch failed: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1032)>
+
+=== ClinVar (esearch API) ===
+ClinVar fetch failed: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate in certificate chain (_ssl.c:1032)>
+
+=== UniProt GCase P04062 (API) ===
+GCase fetch failed: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1032)>
