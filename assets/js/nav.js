@@ -10,6 +10,7 @@
   const items = [
     { href: home, key: 'home', label: 'Home' },
     { href: p + 'synthesis.html', key: 'synthesis', label: '종합' },
+    { href: p + 'master-package.html', key: 'master', label: '마스터' },
     { href: p + 'framework.html', key: 'framework', label: '프레임' },
     { href: p + 'module-case.html', key: 'module', label: '모듈' },
     { href: p + 'compute.html', key: 'compute', label: '계산' },
@@ -25,6 +26,7 @@
     const file = here.split('/').pop() || '';
     if (!file || file === 'index.html') return 'home';
     if (file === 'synthesis.html') return 'synthesis';
+    if (file === 'master-package.html') return 'master';
     if (file === 'framework.html' || file === 'question.html') return 'framework';
     if (file === 'module-case.html' || file === 'ser152ile.html') return 'module';
     if (file === 'compute.html') return 'compute';
