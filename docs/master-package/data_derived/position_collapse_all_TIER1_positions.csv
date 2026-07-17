@@ -1,0 +1,91 @@
+rank,position,WT_aa,n_TIER1,n_CAUTION,n_EXCLUDE_ish,max_score,mean_dist_cat_A,RSA_pct,epitope_count,paper_role,modality_hint,residual_activity_lit,notes
+1,152,S,5,0,0,10,10.27,0,11,face_case_1,binder_adjacent_epitope,UNKNOWN,Ser152 module; RSA0; dist10.27
+2,469,P,4,0,0,10,12.02,5.7,10,body_table,binder_adjacent_epitope,UNKNOWN,Pro469; safe dist; epi10
+3,308,D,4,0,0,10,10.87,0,6,face_case_2,binder_adjacent_epitope,UNKNOWN,Asp charge/cavity network
+4,108,Y,4,0,1,9,8.11,6.8,14,face_case_3,binder_adjacent_epitope,UNKNOWN,boundary aromatic; epi rich
+5,502,W,4,0,2,9,9.29,0.4,11,body_table,binder_adjacent_epitope,UNKNOWN,Trp502; packing/aromatic
+6,480,P,4,0,1,9,9.76,0.6,9,body_table,binder_adjacent_epitope,UNKNOWN,Pro480; RSA low
+7,485,I,3,0,1,10,12.91,0.5,17,body_table,binder_adjacent_epitope,UNKNOWN,epi n=17 richest among top
+8,95,R,3,0,1,10,10.64,0.4,11,body_table,binder_adjacent_epitope,UNKNOWN,Arg95
+9,493,R,3,0,0,10,13.53,5.8,11,body_table,binder_adjacent_epitope,UNKNOWN,Arg493
+10,521,E,3,0,1,10,11.78,2.7,11,body_table,binder_adjacent_epitope,UNKNOWN,Glu521
+11,71,S,3,0,0,10,17.09,0,8,body_table,binder_adjacent_epitope,UNKNOWN,Ser71 multi-sub like 152 pattern
+12,102,L,3,0,1,9,6.81,0,10,body_table_caution_border,review_dist,UNKNOWN,dist 6.81 near cutoff
+13,340,G,3,0,0,9,9.44,0,10,body_table,binder_adjacent_epitope,UNKNOWN,Gly340
+14,342,H,3,0,0,9,9.91,0.9,10,body_table,binder_adjacent_epitope,UNKNOWN,His342
+15,465,Q,3,0,1,9,9,6.7,4,body_table,binder_adjacent_epitope,UNKNOWN,epi only 4 — harder design
+16,61,S,2,0,0,8,12.81,0.6,,supplement,TBD,UNKNOWN,auto-ranked TIER1 position
+17,64,I,2,0,0,8,10.34,0,,supplement,TBD,UNKNOWN,auto-ranked TIER1 position
+18,120,P,2,0,0,8,10.75,0,,supplement,TBD,UNKNOWN,auto-ranked TIER1 position
+19,121,Q,2,0,1,8,13.57,6.2,,supplement,TBD,UNKNOWN,auto-ranked TIER1 position
+20,196,L,2,0,0,8,10.51,0.5,,supplement,TBD,UNKNOWN,auto-ranked TIER1 position
+21,205,A,2,0,1,8,10.62,0,,,,UNKNOWN,
+22,314,L,2,0,0,8,11.43,0,,,,UNKNOWN,
+23,434,E,2,0,0,8,15.03,7.6,,,,UNKNOWN,
+24,491,S,2,0,0,8,12.79,1.9,,,,UNKNOWN,
+25,498,R,2,0,2,8,10.91,0.4,,,,UNKNOWN,
+26,503,V,2,0,0,8,16.96,0,,,,UNKNOWN,
+27,59,V,2,0,0,7,11.14,4,,,,UNKNOWN,
+28,148,D,2,0,0,7,7.27,0,,,,UNKNOWN,
+29,198,D,2,0,1,7,6.94,0,,,,UNKNOWN,
+30,266,P,2,0,0,7,7.11,0,,,,UNKNOWN,
+31,275,D,2,0,0,7,12.1,15.5,,,,UNKNOWN,
+32,339,L,2,0,0,7,7.81,0.5,,,,UNKNOWN,
+33,343,G,2,0,0,7,9.63,8.7,,,,UNKNOWN,
+34,467,P,2,0,0,7,9.33,0,,,,UNKNOWN,
+35,63,N,1,0,0,8,15.5,1.5,,,,UNKNOWN,
+36,68,A,1,0,0,8,16.63,2.3,,,,UNKNOWN,
+37,73,L,1,0,1,8,14.78,2,,,,UNKNOWN,
+38,94,G,1,0,0,8,11.97,0,,,,UNKNOWN,
+39,110,R,1,0,0,8,11.8,9.5,,,,UNKNOWN,
+40,117,S,1,0,1,8,13.46,7.1,,,,UNKNOWN,
+41,118,T,1,0,1,8,10.21,0,,,,UNKNOWN,
+42,130,T,1,0,0,8,13.04,0,,,,UNKNOWN,
+43,221,L,1,0,0,8,10.31,0,,,,UNKNOWN,
+44,252,D,1,0,0,8,13.67,7.3,,,,UNKNOWN,
+45,259,L,1,0,0,8,10.62,7,,,,UNKNOWN,
+46,271,R,1,0,0,8,11.18,6.9,,,,UNKNOWN,
+47,293,Q,1,0,1,8,14.08,4.9,,,,UNKNOWN,
+48,305,S,1,0,1,8,10.5,0,,,,UNKNOWN,
+49,309,T,1,0,0,8,13.31,2.3,,,,UNKNOWN,
+50,312,G,1,0,0,8,14.09,1,,,,UNKNOWN,
+51,410,L,1,0,0,8,12.86,0,,,,UNKNOWN,
+52,426,SFHVELCREGKNLLKHFRFRDLEEDPYLPGNPRELIAYSQYPRPSDIPQWNSDKPSLKD,1,0,0,8,18.47,0,,,,UNKNOWN,
+53,473,P,1,0,0,8,11.41,8.2,,,,UNKNOWN,
+54,488,M,1,0,2,8,13.23,0,,,,UNKNOWN,
+55,489,G,1,0,1,8,12.03,0,,,,UNKNOWN,
+56,523,Y,1,0,0,8,13.34,1.1,,,,UNKNOWN,
+57,41,L,1,0,2,7,8.1,0,,,,UNKNOWN,
+58,51,L,1,0,0,7,9.65,0,,,,UNKNOWN,
+59,54,Y,1,0,1,7,11.36,16.7,,,,UNKNOWN,
+60,66,Q,1,0,1,7,18.09,8.4,,,,UNKNOWN,
+61,67,L,1,0,0,7,13.8,0,,,,UNKNOWN,
+62,69,S,1,0,1,7,19.52,7.1,,,,UNKNOWN,
+63,72,L,1,0,0,7,15.39,0.5,,,,UNKNOWN,
+64,77,A,1,0,0,7,8.13,0,,,,UNKNOWN,
+65,99,T,1,0,0,7,13.83,5.8,,,,UNKNOWN,
+66,103,Y,1,0,1,7,7.77,2.7,,,,UNKNOWN,
+67,182,L,1,0,0,7,7.1,0,,,,UNKNOWN,
+68,197,P,1,0,1,7,7.97,0.6,,,,UNKNOWN,
+69,212,M,1,0,1,7,17.69,7.1,,,,UNKNOWN,
+70,235,P,1,0,0,7,11.22,1.9,,,,UNKNOWN,
+71,264,Y,1,0,0,7,7.43,0.8,,,,UNKNOWN,
+72,267,W,1,0,1,7,6.69,0.4,,,,UNKNOWN,
+73,292,F,1,0,0,7,13.27,7.1,,,,UNKNOWN,
+74,298,Q,1,0,0,7,11.52,6.2,,,,UNKNOWN,
+75,299,S,1,0,1,7,7.99,0.6,,,,UNKNOWN,
+76,315,L,1,0,0,7,14.98,1,,,,UNKNOWN,
+77,318,L,1,0,0,7,17.91,0,,,,UNKNOWN,
+78,319,D,1,0,1,7,21.22,2.1,,,,UNKNOWN,
+79,324,A,1,0,0,7,22.57,0.8,,,,UNKNOWN,
+80,341,E,1,0,0,7,9.08,5.8,,,,UNKNOWN,
+81,360,I,1,0,0,7,10.97,0,,,,UNKNOWN,
+82,361,F,1,0,1,7,12.27,0,,,,UNKNOWN,
+83,378,F,1,0,1,7,19.26,0.8,,,,UNKNOWN,
+84,436,K,1,0,0,7,16.29,6.4,,,,UNKNOWN,
+85,438,L,1,0,0,7,14.29,0.5,,,,UNKNOWN,
+86,442,F,1,0,0,7,17.7,2.9,,,,UNKNOWN,
+87,462,A,1,0,0,7,12.14,0,,,,UNKNOWN,
+88,490,Y,1,0,1,7,14.12,15.2,,,,UNKNOWN,
+89,497,Y,1,0,0,7,17.51,4.2,,,,UNKNOWN,
+90,504,G,1,0,0,7,19.53,6.7,,,,UNKNOWN,

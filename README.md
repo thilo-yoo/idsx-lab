@@ -47,6 +47,7 @@ Advisor-grade + personal research archive. Fixed narrative of **what was built, 
 | [`08_epitope_quality_cards.md`](docs/master-package/08_epitope_quality_cards.md) | Patch quality cards |
 | [`09_session_synthesis.md`](docs/master-package/09_session_synthesis.md) | Session findings + numbers |
 | [Process KPI page](https://thilo-yoo.github.io/idsx-lab/pages/process-kpi.html) | Conceptual process dashboard |
+| [`10`–`21` templates](docs/master-package/00_README.md) | Collapse table, prereg, decision tree, IMRaD, HAZOP, wet menu, PFI, weekly ops |
 
 Portal page: **[Master package](https://thilo-yoo.github.io/idsx-lab/pages/master-package.html)**
 

@@ -1,0 +1,21 @@
+rank,position,WT_aa,n_TIER1,n_CAUTION,n_EXCLUDE_ish,max_score,mean_dist_cat_A,RSA_pct,epitope_count,paper_role,modality_hint,residual_activity_lit,notes
+1,152,S,5,0,0,10,10.27,0,11,face_case_1,binder_adjacent_epitope,UNKNOWN,Ser152 module; RSA0; dist10.27
+2,469,P,4,0,0,10,12.02,5.7,10,body_table,binder_adjacent_epitope,UNKNOWN,Pro469; safe dist; epi10
+3,308,D,4,0,0,10,10.87,0,6,face_case_2,binder_adjacent_epitope,UNKNOWN,Asp charge/cavity network
+4,108,Y,4,0,1,9,8.11,6.8,14,face_case_3,binder_adjacent_epitope,UNKNOWN,boundary aromatic; epi rich
+5,502,W,4,0,2,9,9.29,0.4,11,body_table,binder_adjacent_epitope,UNKNOWN,Trp502; packing/aromatic
+6,480,P,4,0,1,9,9.76,0.6,9,body_table,binder_adjacent_epitope,UNKNOWN,Pro480; RSA low
+7,485,I,3,0,1,10,12.91,0.5,17,body_table,binder_adjacent_epitope,UNKNOWN,epi n=17 richest among top
+8,95,R,3,0,1,10,10.64,0.4,11,body_table,binder_adjacent_epitope,UNKNOWN,Arg95
+9,493,R,3,0,0,10,13.53,5.8,11,body_table,binder_adjacent_epitope,UNKNOWN,Arg493
+10,521,E,3,0,1,10,11.78,2.7,11,body_table,binder_adjacent_epitope,UNKNOWN,Glu521
+11,71,S,3,0,0,10,17.09,0,8,body_table,binder_adjacent_epitope,UNKNOWN,Ser71 multi-sub like 152 pattern
+12,102,L,3,0,1,9,6.81,0,10,body_table_caution_border,review_dist,UNKNOWN,dist 6.81 near cutoff
+13,340,G,3,0,0,9,9.44,0,10,body_table,binder_adjacent_epitope,UNKNOWN,Gly340
+14,342,H,3,0,0,9,9.91,0.9,10,body_table,binder_adjacent_epitope,UNKNOWN,His342
+15,465,Q,3,0,1,9,9,6.7,4,body_table,binder_adjacent_epitope,UNKNOWN,epi only 4 — harder design
+16,61,S,2,0,0,8,12.81,0.6,,supplement,TBD,UNKNOWN,auto-ranked TIER1 position
+17,64,I,2,0,0,8,10.34,0,,supplement,TBD,UNKNOWN,auto-ranked TIER1 position
+18,120,P,2,0,0,8,10.75,0,,supplement,TBD,UNKNOWN,auto-ranked TIER1 position
+19,121,Q,2,0,1,8,13.57,6.2,,supplement,TBD,UNKNOWN,auto-ranked TIER1 position
+20,196,L,2,0,0,8,10.51,0.5,,supplement,TBD,UNKNOWN,auto-ranked TIER1 position
