@@ -1,0 +1,39 @@
+{
+  "selected_step": {
+    "id": 7,
+    "name": "Lysosomal pH-window release & catalysis",
+    "sim": true
+  },
+  "prior_step_not_repeated": "STEP 3 native preferential stabilization (separate deck)",
+  "nonclaim": "pH-window model shows catalytic availability can recover at acidic pH while ER occupancy remains high; not a cellular or clinical proof.",
+  "params": {
+    "Kd_ref_uM": 0.5,
+    "pH_ref": 7.4,
+    "alpha": 0.85,
+    "kcat": 1.0,
+    "Km_uM": 50.0,
+    "S_uM": 100.0,
+    "E_tot": 1.0,
+    "activity_EC": 0.0
+  },
+  "demo": {
+    "C_uM": 5.0,
+    "Kd_ER_uM": 0.5,
+    "Kd_Lys_uM": 81.09050486794658,
+    "Kd_ratio_Lys_over_ER": 162.18100973589316,
+    "ER_occupancy": 0.8915047169858492,
+    "Lys_E_free": 0.9425505634012339,
+    "Lys_v_rel": 0.9425505634012338,
+    "opt_C_uM": 7.912342618981326,
+    "opt_window_index": 0.8510325727476226,
+    "opt_ER_occ": 0.9331478832061486,
+    "opt_Lys_v": 0.9120018252879802
+  },
+  "bridge": {
+    "throughput_noPC": 0.58,
+    "throughput_pH_window_PC": 0.8671465183291351,
+    "throughput_tight_no_window": 0.011323611332898907,
+    "note": "Conceptual coupling: inventory (STEP3-like) \u00d7 catalytic availability (STEP7)"
+  },
+  "proof_statement": "At [PC]=5.0 \u03bcM, pH-sensitive inhibitory PC: Kd increases 162.2\u00d7 from pH 7.4 to 4.8; ER occupancy=0.89 while lysosomal relative velocity=0.94. pH-insensitive tight binder collapses lysosomal activity (v_rel=0.01). Window index optimizes near C\u22487.91 \u03bcM."
+}

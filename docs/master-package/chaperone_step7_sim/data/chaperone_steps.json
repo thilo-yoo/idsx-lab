@@ -1,0 +1,43 @@
+[
+  {
+    "id": 1,
+    "name": "Translation / synthesis",
+    "sim": false
+  },
+  {
+    "id": 2,
+    "name": "ER folding nucleation",
+    "sim": false
+  },
+  {
+    "id": 3,
+    "name": "Native preferential stabilization",
+    "sim": false,
+    "note": "prior deck"
+  },
+  {
+    "id": 4,
+    "name": "ERQC pass / ERAD\u2193",
+    "sim": false
+  },
+  {
+    "id": 5,
+    "name": "Golgi / M6P",
+    "sim": false
+  },
+  {
+    "id": 6,
+    "name": "Lysosomal delivery",
+    "sim": false
+  },
+  {
+    "id": 7,
+    "name": "Lysosomal pH-window release & catalysis",
+    "sim": true
+  },
+  {
+    "id": 8,
+    "name": "Substrate (GAG) clearance",
+    "sim": false
+  }
+]
