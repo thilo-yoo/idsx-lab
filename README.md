@@ -40,6 +40,13 @@ Advisor-grade + personal research archive. Fixed narrative of **what was built, 
 | [`docs/master-package/03_talk_scripts.md`](docs/master-package/03_talk_scripts.md) | 60s · 5min · 20min talk scripts |
 | [`docs/master-package/IDSX_Master_Advisor_Presentation.pptx`](docs/master-package/IDSX_Master_Advisor_Presentation.pptx) | 30-slide advisor deck (PPTX) |
 | [`docs/master-package/IDSX_Master_Advisor_Presentation.key`](docs/master-package/IDSX_Master_Advisor_Presentation.key) | Same deck (Keynote) |
+| [`04_chemeng_framework.md`](docs/master-package/04_chemeng_framework.md) | ChemE mass balance · PFD · Pareto · PFI |
+| [`05_chaperone_directions.md`](docs/master-package/05_chaperone_directions.md) | Directions D1–D8 |
+| [`06_gap_checklist.md`](docs/master-package/06_gap_checklist.md) | **What still needed (P0–P3)** |
+| [`07_trackB_critical_review.md`](docs/master-package/07_trackB_critical_review.md) | Neo-pocket track critique |
+| [`08_epitope_quality_cards.md`](docs/master-package/08_epitope_quality_cards.md) | Patch quality cards |
+| [`09_session_synthesis.md`](docs/master-package/09_session_synthesis.md) | Session findings + numbers |
+| [Process KPI page](https://thilo-yoo.github.io/idsx-lab/pages/process-kpi.html) | Conceptual process dashboard |
 
 Portal page: **[Master package](https://thilo-yoo.github.io/idsx-lab/pages/master-package.html)**
 

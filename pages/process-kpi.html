@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>공정 KPI 개념 대시보드 — IDSX Lab</title>
+  <meta name="description" content="Chemical-engineering process KPI frame for IDS missense triage. Conceptual dashboard, not clinical tool." />
+  <link rel="stylesheet" href="../assets/css/style.css" />
+  <style>
+    .kpi-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:1rem; }
+    .kpi { background:var(--card, #fff); border:1px solid var(--line,#d0dce0); border-radius:12px; padding:1rem 1.1rem; }
+    .kpi .v { font-size:1.6rem; font-weight:700; color:var(--teal,#0d9488); margin:.35rem 0; }
+    .kpi .s { font-size:.85rem; color:var(--muted,#5a6a75); }
+    .flow { display:flex; flex-wrap:wrap; gap:.5rem; align-items:center; margin:1rem 0; }
+    .flow .box { background:#0b1f33; color:#5ee0c5; padding:.55rem .8rem; border-radius:8px; font-size:.9rem; }
+    .flow .arr { color:#5a6a75; font-weight:700; }
+    .track-a { border-left:4px solid #0d9488; }
+    .track-b { border-left:4px solid #e89b0c; }
+    .track-c { border-left:4px solid #e85d4c; }
+  </style>
+</head>
+<body>
+  <div data-nav></div>
+  <main class="wrap">
+    <section class="hero">
+      <div class="kicker">Chemical engineering lens · conceptual · 2026-07-17</div>
+      <h1>기능 효소 공정의 KPI</h1>
+      <p class="lede">
+        측정 활성 저하를 <strong style="color:var(--text)">k_cat=0</strong>만으로 보지 않는다.
+        리소좀 재고 \(C_{\mathrm{lys}}\) 와 효율 \(\eta_{\mathrm{fold}},\eta_{\mathrm{QC}},\eta_{\mathrm{traf}}\) 의
+        <strong style="color:var(--text)">물질수지 문제</strong>로 읽는다. 본 페이지는 임상 도구가 아니라
+        <em>사고·우선순위 대시보드 사양</em>이다.
+      </p>
+      <div class="badges">
+        <span class="badge info">PFD</span>
+        <span class="badge ok">Track 분리</span>
+        <span class="badge warn">실측 η 없음</span>
+        <span class="badge purple">non-claim</span>
+      </div>
+    </section>
+
+    <section class="block">
+      <h2>단위공정 흐름 (개념 PFD)</h2>
+      <div class="flow">
+        <div class="box">번역 r_syn</div><span class="arr">→</span>
+        <div class="box">ER 접힘 η_fold</div><span class="arr">→</span>
+        <div class="box">ERQC η_QC</div><span class="arr">→</span>
+        <div class="box">골지/M6P η_traf</div><span class="arr">→</span>
+        <div class="box">리소좀 C_lys · 활성</div>
+      </div>
+      <p class="s">폐기 분기: ERAD. 샤페론 개입 밸브는 주로 η_fold / η_QC.</p>
+    </section>
+
+    <section class="block">
+      <h2>KPI 타일 (프록시 상태)</h2>
+      <div class="kpi-grid">
+        <div class="kpi">
+          <div>DB coverage</div>
+          <div class="v">797</div>
+          <div class="s">변이–구조 주석 행</div>
+        </div>
+        <div class="kpi">
+          <div>TIER1 proxy</div>
+          <div class="v">146</div>
+          <div class="s">위치 collapse 전 · 치료 후보 수 아님</div>
+        </div>
+        <div class="kpi">
+          <div>EXCLUDE</div>
+          <div class="v">210</div>
+          <div class="s">null/촉매/Ca/이황화 등</div>
+        </div>
+        <div class="kpi">
+          <div>CAUTION pocket</div>
+          <div class="v">106</div>
+          <div class="s">dist &lt; 6.5 Å</div>
+        </div>
+        <div class="kpi">
+          <div>Ser152 ΔΔG</div>
+          <div class="v">+46</div>
+          <div class="s">EvoEF2 kcal/mol · S152I · CTSS=0</div>
+        </div>
+        <div class="kpi">
+          <div>AF RMSD</div>
+          <div class="v">0.37Å</div>
+          <div class="s">WT vs S152I · 안정 증명 아님</div>
+        </div>
+        <div class="kpi">
+          <div>Residual lit.</div>
+          <div class="v">UNKNOWN</div>
+          <div class="s">P0 갭 · 매트릭스 필요</div>
+        </div>
+        <div class="kpi">
+          <div>TRL (비유)</div>
+          <div class="v">2–3</div>
+          <div class="s">지도 완료~에너지 교차</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="block prose">
+      <h2>대표 변이 — 트랙 태그 (다축)</h2>
+      <table>
+        <thead>
+          <tr><th>변이</th><th>ΔΔG</th><th>SASA</th><th>CTSS</th><th>트랙</th><th>한 줄</th></tr>
+        </thead>
+        <tbody>
+          <tr class="track-a"><td>S152I</td><td>+46</td><td>0</td><td>0</td><td>A</td><td>모듈+표면 패치</td></tr>
+          <tr class="track-a"><td>S152R</td><td>+80</td><td>0</td><td>0</td><td>A</td><td>동 모듈 더 불안정 프록시</td></tr>
+          <tr class="track-a"><td>D308E</td><td>+116</td><td>0</td><td>0</td><td>A</td><td>에너지 큼 · 직접 틈 없음</td></tr>
+          <tr class="track-a"><td>Y108C</td><td>+1.3</td><td>17</td><td>낮음</td><td>A</td><td>에너지만 보면 약 → 구조·라벨 병기</td></tr>
+          <tr class="track-c"><td>R88C</td><td>+13</td><td>5</td><td>중간</td><td>C</td><td>촉매 인접 주의</td></tr>
+          <tr class="track-b"><td>C422F</td><td>+122</td><td>20.5</td><td>고</td><td>B↔EXCL</td><td>neo-pocket vs 이황화 규칙</td></tr>
+          <tr class="track-b"><td>H159Y</td><td>+30</td><td>102</td><td>최고</td><td>B 검토</td><td>CTSS 1위 · A 미배정</td></tr>
+          <tr class="track-b"><td>C184W</td><td>+111</td><td>0</td><td>0</td><td>충돌</td><td>고에너지·무틈</td></tr>
+        </tbody>
+      </table>
+      <p>원 데이터: Master Package <span class="mono">data_derived/focus_multimetric.csv</span> · EvoEF2/CTSS 원시 파일.</p>
+    </section>
+
+    <section class="block prose">
+      <h2>Pareto 렌즈 (한 랭킹으로 합치지 말 것)</h2>
+      <ul>
+        <li><strong>J1 임상 부담 프록시</strong> — 빈도·병원성 라벨</li>
+        <li><strong>J2 적합성 프록시</strong> — 이격·에피토프·비촉매 (amenability)</li>
+        <li><strong>J3 접근성 프록시</strong> — SASA·CTSS (Track B)</li>
+      </ul>
+      <p>Ser152는 J1·J2, C422는 J3, Arg88은 J1만 높고 J2 바인더 실패.</p>
+    </section>
+
+    <section class="block prose">
+      <h2>관련 문서</h2>
+      <ul>
+        <li><a href="master-package.html">마스터 패키지</a></li>
+        <li><a href="../docs/master-package/04_chemeng_framework.md">화학공학 프레임 (repo)</a></li>
+        <li><a href="../docs/master-package/06_gap_checklist.md">갭 체크리스트</a></li>
+        <li><a href="synthesis.html">종합</a> · <a href="compute.html">계산</a></li>
+      </ul>
+    </section>
+  </main>
+  <footer class="footer">
+    <div class="wrap">
+      <div>IDSX Lab · Process KPI (conceptual)</div>
+      <div><a href="../index.html">← Home</a></div>
+    </div>
+  </footer>
+  <script src="../assets/js/nav.js"></script>
+</body>
+</html>
