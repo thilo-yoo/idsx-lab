@@ -30,6 +30,10 @@
 
 ## Master package (2026-07-17)
 
+**Start here:** [`docs/master-package/00_시작/00_START_HERE_IDSX_지도.md`](docs/master-package/00_시작/00_START_HERE_IDSX_지도.md) · Hubs 01–04 · Keynotes in `07_키노트/`
+
+## Master package (2026-07-17)
+
 Advisor-grade + personal research archive. Fixed narrative of **what was built, how it was reasoned, current strength map, and gated plans**.
 
 | File | Role |
