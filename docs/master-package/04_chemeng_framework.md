@@ -272,4 +272,27 @@ J_3 &= \text{druggability proxy (SASA·ΔΔG·소수성 = CTSS류)}
 
 ---
 
-*끝 — 04 화학공학 접목 프레임 심화*
+## 12. 업데이트 — 반응공학 · 촉매공학 심화 (2026-07-17)
+
+본 문서 §0–10이 **공정·수지·단위공정** 층이라면, 아래는 **반응·촉매 설계 방정식** 층이다.  
+상세 덱·노트:
+
+| 산출 | 경로 |
+|------|------|
+| 키노트 | `chemeng_rxn_cat_chaperone/IDSX_ChemE_Rxn_Catalysis_Chaperone_Design.key` |
+| 노트 | `chemeng_rxn_cat_chaperone/00_반응공학_촉매공학_샤페론설계.md` |
+
+**핵심 정렬**
+
+| 반응/촉매 기호 | IDSX 대응 |
+|----------------|-----------|
+| 선택도 S | Kd_N/Kd_U, 에피토프 특이, 6.5Å |
+| 전환율 X · Da | η_fold, k_fold·τ_ER, STEP3 |
+| Ki 창 · TOF | STEP7 pH-window, 4MU |
+| 비활성화 k_d | ERAD·수송 수명, S6 |
+| 활성점 vs 담지체 | inhibitory PC vs 표면 바인더 |
+| max Y·S·a | competence 사전등록 |
+
+---
+
+*끝 — 04 화학공학 접목 프레임 심화 (+ §12 반응/촉매 융합)*
