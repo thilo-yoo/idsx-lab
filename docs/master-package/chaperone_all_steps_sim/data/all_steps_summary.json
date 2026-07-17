@@ -1,0 +1,163 @@
+{
+  "nonclaim": "Multi-step kinetic/thermodynamic sketches for IDSX education and prioritization. Not cellular validation or clinical efficacy.",
+  "steps": [
+    {
+      "name": "S1 Translation/synthesis",
+      "PC_role": "NONE \u2014 chaperone does not fix null alleles",
+      "result": "Missense supply \u2248 WT; null NMD cuts ceiling to ~15%. Hard EXCLUDE for null is justified.",
+      "metric": {
+        "steady_WT": 4.0,
+        "steady_null": 0.6
+      }
+    },
+    {
+      "name": "S2 ER folding nucleation",
+      "PC_role": "Lower productive folding barrier / favor on-pathway nucleus",
+      "result": "Productive nucleation fraction 0.081 \u2192 0.919 when barrier reduced by 3 kcal/mol",
+      "metric": {
+        "frac_base": 0.0805288226648916,
+        "frac_helped_3kcal": 0.9194711773351085,
+        "enrichment": 11.417914069864741
+      }
+    },
+    {
+      "name": "S3 Native preferential stabilization",
+      "PC_role": "Bind N stronger than U \u2192 mass-action enrichment of folded pool",
+      "result": "Folded 0.580 \u2192 0.922 at 10 \u03bcM (1.59\u00d7); nonpreferential control fails",
+      "metric": {
+        "folded_0": 0.5804670909491453,
+        "folded_10uM": 0.9223445723296189,
+        "enrichment": 1.5889696189691922
+      }
+    },
+    {
+      "name": "S4 ERQC / ERAD competition",
+      "PC_role": "Raise f_folded and/or shield from ERAD recognition \u2192 higher export efficiency",
+      "result": "eta_export(f=0.58)=0.326; (f=0.92)=0.724; with shield sigma=0.55 at f=0.92 \u2192 0.780",
+      "metric": {
+        "eta_058": 0.3258426966292135,
+        "eta_092": 0.7244094488188977,
+        "eta_092_shield": 0.7796610169491526,
+        "gain_fold_only": 2.2231876187890305,
+        "gain_fold_and_shield": 2.3927527761542957
+      }
+    },
+    {
+      "name": "S5 Golgi maturation / M6P",
+      "PC_role": "Indirect: more folded cargo \u2192 better M6P tagging; cannot rescue glyco-site null",
+      "result": "eta_M6P(0.58)=0.629; (0.92)=0.708; glyco-site dead fixed ~0.05",
+      "metric": {
+        "eta_058": 0.6289156626506025,
+        "eta_092": 0.7076923076923078,
+        "glyco_dead": 0.05
+      }
+    },
+    {
+      "name": "S6 Lysosomal delivery",
+      "PC_role": "Stabilize cargo in transit \u2192 lower leak/proteolysis \u2192 higher lysosomal arrival",
+      "result": "Lysosomal delivery: mutant 0.439 \u2192 PC 0.725 (WT 0.802)",
+      "metric": {
+        "unstable_mutant": 0.43935925896081596,
+        "PC_stabilized_cargo": 0.7246362737711978,
+        "WT_like": 0.8021356231790738
+      }
+    },
+    {
+      "name": "S7 Lysosomal pH-window catalysis",
+      "PC_role": "Inhibitory PC: tight at ER pH, weak at lysosomal pH",
+      "result": "At 5 \u03bcM: ER occ=0.89, lys v_rel=0.94; no-window tight lys v_rel=0.01",
+      "metric": {
+        "Kd_ratio": 162.18100973589316,
+        "ER_occ_5uM": 0.8915047169858492,
+        "lys_v_5uM": 0.9425505634012339,
+        "lys_v_tight": 0.012308273187933594
+      }
+    },
+    {
+      "name": "S8 Substrate (GAG) clearance",
+      "PC_role": "End-point consequence of upstream E_lys and catalytic availability",
+      "result": "Final GAG: disease 38.3 \u2192 S3+S7 32.9 (WT 23.2); tight no-window 40.9",
+      "metric": {
+        "disease_low_E": 38.28564691430509,
+        "S3_only_inventory": 32.428981585502456,
+        "S3_and_S7_window": 32.934004373126285,
+        "S3_tight_no_window": 40.93161894255104,
+        "WT": 23.159621506914288
+      }
+    }
+  ],
+  "cascade_scenarios": [
+    {
+      "scenario": "disease_baseline",
+      "throughput": 0.012504800000000003,
+      "r_syn": 1.0,
+      "f_nucleation": 0.28,
+      "f_folded": 0.58,
+      "eta_export": 0.35,
+      "eta_M6P": 0.55,
+      "eta_delivery": 0.4,
+      "v_cat": 1.0,
+      "clearance_scale": 1.0
+    },
+    {
+      "scenario": "PC_S3_only",
+      "throughput": 0.06818350000000001,
+      "r_syn": 1.0,
+      "f_nucleation": 0.35,
+      "f_folded": 0.92,
+      "eta_export": 0.55,
+      "eta_M6P": 0.7,
+      "eta_delivery": 0.55,
+      "v_cat": 1.0,
+      "clearance_scale": 1.0
+    },
+    {
+      "scenario": "PC_S3_S7",
+      "throughput": 0.06409249,
+      "r_syn": 1.0,
+      "f_nucleation": 0.35,
+      "f_folded": 0.92,
+      "eta_export": 0.55,
+      "eta_M6P": 0.7,
+      "eta_delivery": 0.55,
+      "v_cat": 0.94,
+      "clearance_scale": 1.0
+    },
+    {
+      "scenario": "PC_full_stack",
+      "throughput": 0.18698359680000004,
+      "r_syn": 1.0,
+      "f_nucleation": 0.55,
+      "f_folded": 0.92,
+      "eta_export": 0.72,
+      "eta_M6P": 0.78,
+      "eta_delivery": 0.7,
+      "v_cat": 0.94,
+      "clearance_scale": 1.0
+    },
+    {
+      "scenario": "null_allele",
+      "throughput": 0.0,
+      "r_syn": 0.15,
+      "f_nucleation": 0.0,
+      "f_folded": 0.0,
+      "eta_export": 0.0,
+      "eta_M6P": 0.0,
+      "eta_delivery": 0.0,
+      "v_cat": 0.0,
+      "clearance_scale": 1.0
+    },
+    {
+      "scenario": "WT",
+      "throughput": 0.4530074999999999,
+      "r_syn": 1.0,
+      "f_nucleation": 0.75,
+      "f_folded": 0.95,
+      "eta_export": 0.85,
+      "eta_M6P": 0.88,
+      "eta_delivery": 0.85,
+      "v_cat": 1.0,
+      "clearance_scale": 1.0
+    }
+  ]
+}
