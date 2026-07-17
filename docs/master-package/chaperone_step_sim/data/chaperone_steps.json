@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "name": "Translation / synthesis",
+    "sim_here": false
+  },
+  {
+    "id": 2,
+    "name": "ER folding nucleation",
+    "sim_here": false
+  },
+  {
+    "id": 3,
+    "name": "Native-state preferential stabilization (U\u21ccN shift)",
+    "sim_here": true
+  },
+  {
+    "id": 4,
+    "name": "ERQC pass / reduced ERAD",
+    "sim_here": false
+  },
+  {
+    "id": 5,
+    "name": "Golgi maturation / M6P",
+    "sim_here": false
+  },
+  {
+    "id": 6,
+    "name": "Lysosomal delivery",
+    "sim_here": false
+  },
+  {
+    "id": 7,
+    "name": "Lysosomal release & catalysis (pH window)",
+    "sim_here": false
+  },
+  {
+    "id": 8,
+    "name": "Substrate clearance (GAG)",
+    "sim_here": false
+  }
+]

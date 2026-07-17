@@ -1,0 +1,73 @@
+{
+  "selected_step": {
+    "id": 3,
+    "name": "Native-state preferential stabilization (U\u21ccN shift)",
+    "sim_here": true
+  },
+  "nonclaim": "Simulation supports enrichment of folded population under preferential native binding; does NOT prove cellular rescue or clinical efficacy.",
+  "structure_metrics": {
+    "n_atoms_chainA": 7972,
+    "ser152_OG_Asp148": 2.52586500035137,
+    "ser152_OG_Thr118": 2.846509968364771,
+    "heavy_atoms_within_4p5A_of_152CB": 26,
+    "heavy_atoms_within_6A": 59
+  },
+  "local_strain": {
+    "E_hbond_WT": -5.0,
+    "E_hbond_MUT": 0.0,
+    "E_clash_MUT": 88.68164614654793,
+    "E_hydrophobic_MUT": -1.5,
+    "E_local_WT": -5.0,
+    "E_local_MUT": 87.18164614654793,
+    "deltaE_local_MUT_minus_WT": 92.18164614654793
+  },
+  "baseline_two_state": {
+    "frac_folded": 0.5804670909491453,
+    "frac_N": 0.5804670909491453,
+    "frac_U": 0.4195329090508546,
+    "dG_fold": -0.20000000000000018,
+    "K_fold": 1.3836032369007378
+  },
+  "demo_PC_10uM": {
+    "dG_fold": -0.20000000000000018,
+    "K_fold": 1.3836032369007378,
+    "frac_U": 0.06563563952815281,
+    "frac_N": 0.09081368330720224,
+    "frac_UC": 0.012019788142228406,
+    "frac_NC": 0.8315308890224166,
+    "frac_folded": 0.9223445723296189,
+    "frac_unfolded_pool": 0.07765542767038122,
+    "free_C": 9.156449322835357
+  },
+  "params": {
+    "dG_fold_WT": -3.0,
+    "ddG_mut": 2.8,
+    "Kd_N": 1.0,
+    "Kd_U": 50.0,
+    "C_total_uM": 10.0
+  },
+  "enrichment_folded_10uM": 1.5889696189691922,
+  "clamp_scan_endpoints": {
+    "k0": {
+      "rmsf_152": 1.2409371458700076,
+      "rmsf_module_mean": 1.2409371458700076,
+      "rmsf_patch_mean": 1.2409371458700076,
+      "E_local_boltzmann": 14.091619729055422,
+      "k152_eff": 1.2,
+      "k_clamp": 0.0
+    },
+    "kmax": {
+      "rmsf_152": 0.6204685729350038,
+      "rmsf_module_mean": 0.901181439408922,
+      "rmsf_patch_mean": 0.4481738307941414,
+      "E_local_boltzmann": 14.015462177136317,
+      "k152_eff": 4.8,
+      "k_clamp": 8.0
+    }
+  },
+  "E_wt_fluct": 0.26743389263823997,
+  "rmsf_wt": 1.2409371458700076,
+  "ddG_note": "Population model uses biophysical-scale ddG_mut=2.8 kcal/mol (not raw EvoEF2 +46).",
+  "evoef2_S152I_reference": 46.02,
+  "proof_statement": "At model [PC]=10 \u03bcM with Kd_N=1 \u03bcM << Kd_U=50 \u03bcM, folded fraction rises from 0.580 to 0.922 (1.59\u00d7 enrichment). Non-preferential control (Kd_N=Kd_U) does not enrich. Surface clamp increases stiffness and lowers RMSF_152 from 1.241 to 0.620 \u00c5."
+}
